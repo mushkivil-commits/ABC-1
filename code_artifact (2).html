@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>שאלונים בספר יהושע - התראות לטלפון</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;900&family=Noto+Sans+Hebrew:wght@400;600;700&display=swap">
+<style>
+:root {
+  --bg: #EDF0EE;
+  --sf: #fff;
+  --ink: #14262B;
+  --mu: #53676C;
+  --ln: #CFD8D6;
+  --ac: #1E6E8C;
+  --ai: #fff;
+  --as: #D8EBF2;
+  --sa: #A8681F;
+  --gd: #2B7A4B;
+  --gb: #DCEFE3;
+  --bd: #B03A2E;
+  --bb: #F6DDD9;
+  --fd: "Frank Ruhl Libre", "David", serif;
+  --fb: "Noto Sans Hebrew", Arial, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme=light]) {
+    --bg: #0F191C;
+    --sf: #172428;
+    --ink: #E7EFF1;
+    --mu: #9FB3B8;
+    --ln: #2B3D42;
+    --ac: #7CC4DC;
+    --ai: #0B1A1F;
+    --as: #1D3A45;
+    --sa: #E0A458;
+    --gd: #7FD3A0;
+    --gb: #173626;
+    --bd: #F2988C;
+    --bb: #3C1E1A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme=dark] {
+  --bg: #0F191C;
+  --sf: #172428;
+  --ink: #E7EFF1;
+  --mu: #9FB3B8;
+  --ln: #2B3D42;
+  --ac: #7CC4DC;
+  --ai: #0B1A1F;
+  --as: #1D3A45;
+  --sa: #E0A458;
+  --gd: #7FD3A0;
+  --gb: #173626;
+  --bd: #F2988C;
+  --bb: #3C1E1A;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.6 var(--fb);
+  padding: 20px max(16px, env(safe-area-inset-right, 0px)) 40px max(16px, env(safe-area-inset-left, 0px));
+}
+#app { max-width: 680px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--fd); margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(1.7rem, 6.5vw, 2.3rem); font-weight: 900; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.1rem; }
+p { margin: 0; }
+.ey { font-size: .8rem; color: var(--sa); font-weight: 700; }
+main { display: flex; flex-direction: column; gap: 18px; margin-top: 18px; }
+[hidden] { display: none !important; }
+.pn { background: var(--sf); border: 1px solid var(--ln); border-radius: 14px; padding: 20px; }
+.st { display: flex; flex-direction: column; gap: 14px; }
+.mu { color: var(--mu); }
+.sm { font-size: .88rem; }
+label.f { display: flex; flex-direction: column; gap: 6px; font-weight: 600; }
+input[type=text], input[type=password], textarea, select {
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 2px solid var(--ln);
+  border-radius: 8px;
+  padding: 10px 12px;
+  width: 100%;
+}
+textarea { min-height: 100px; }
+:focus-visible { outline: 3px solid var(--ac); outline-offset: 2px; }
+.b {
+  font: inherit;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  min-height: 46px;
+  border: 2px solid var(--ac);
+  background: var(--ac);
+  color: var(--ai);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.b:disabled { opacity: .45; }
+.b.g { background: transparent; color: var(--ac); }
+.b.d { background: transparent; border-color: var(--bd); color: var(--bd); }
+.b.s { min-height: 36px; padding: 5px 12px; font-size: .9rem; }
+.lk { font: inherit; background: none; border: 0; color: var(--mu); text-decoration: underline; cursor: pointer; align-self: flex-start; padding: 6px 0; }
+.msg { min-height: 1.3em; font-weight: 600; }
+.msg.err { color: var(--bd); }
+.msg.ok { color: var(--gd); }
+.nt { background: var(--bb); color: var(--bd); border-radius: 8px; padding: 12px; font-weight: 600; }
+.nt.i { background: var(--as); color: var(--ink); }
+.nt.ok { background: var(--gb); color: var(--gd); }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.bt { justify-content: space-between; }
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: right;
+  font: inherit;
+  color: var(--ink);
+  background: var(--sf);
+  border: 2px solid var(--ln);
+  border-radius: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+}
+.card:hover { border-color: var(--ac); }
+.card b { font-family: var(--fd); font-size: 1.25rem; display: block; }
+.dots { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.dot { width: 32px; height: 22px; border: 2px solid var(--mu); background: none; border-radius: 50%; padding: 0; cursor: pointer; }
+.dot.dn { background: var(--mu); }
+.dot.cu { border-color: var(--ac); background: var(--as); }
+.dot.cu.dn { background: var(--ac); }
+.qn { font-size: .85rem; font-weight: 700; color: var(--sa); }
+.qt { font-size: clamp(1.25rem, 5vw, 1.6rem); font-weight: 700; line-height: 1.7; }
+.os { display: flex; flex-direction: column; gap: 10px; }
+.o {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: right;
+  font: inherit;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--bg);
+  border: 2px solid var(--ln);
+  border-radius: 10px;
+  padding: 8px 14px;
+  min-height: 54px;
+  cursor: pointer;
+}
+.o span:first-child { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--mu); font-weight: 700; font-size: .9rem; }
+.o.sel { border-color: var(--ac); background: var(--as); }
+.nv { display: flex; justify-content: space-between; gap: 10px; }
+ol.rv { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.rv li { border: 1px solid var(--ln); border-radius: 10px; padding: 10px 12px; }
+.rv li.ok { background: var(--gb); }
+.rv li.no { background: var(--bb); }
+.rv .q { font-weight: 700; }
+.tag { font-size: .78rem; font-weight: 700; border-radius: 99px; padding: 1px 99px; margin-inline-start: 8px; background: var(--ln); }
+.tag.ok { background: var(--gd); color: var(--ai); }
+.tag.no { background: var(--bd); color: var(--ai); }
+.sc { font-family: var(--fd); font-size: 2.6rem; font-weight: 900; }
+.sc small { font-size: 1rem; color: var(--mu); font-family: var(--fb); font-weight: 400; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.tab { font: inherit; font-weight: 700; background: none; border: 0; border-bottom: 3px solid transparent; padding: 8px 10px; cursor: pointer; color: var(--mu); }
+.tab[aria-selected=true] { color: var(--ac); border-color: var(--ac); }
+.sp { flex: 1; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.stat { background: var(--sf); border: 1px solid var(--ln); border-radius: 12px; padding: 12px; text-align: center; }
+.stat b { display: block; font-family: var(--fd); font-size: 1.6rem; }
+.stat span { font-size: .8rem; color: var(--mu); }
+.chips { display: flex; gap: 8px; }
+.chip { font: inherit; border: 2px solid var(--ln); background: var(--sf); color: var(--ink); border-radius: 99px; padding: 4px 14px; cursor: pointer; }
+.chip[aria-pressed=true] { background: var(--ac); color: var(--ai); border-color: var(--ac); }
+details.stu, .flat { background: var(--sf); border: 1px solid var(--ln); border-radius: 12px; margin-bottom: 8px; }
+summary, .flat .sm2 { display: flex; gap: 10px; align-items: center; padding: 10px 14px; cursor: pointer; }
+.nm { flex: 1; font-weight: 700; }
+.flat .sm2 { cursor: default; }
+.det { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 10px; }
+.pill { font-size: .78rem; font-weight: 700; border-radius: 99px; padding: 1px 10px; }
+.pill.yes { background: var(--gb); color: var(--gd); }
+.pill.no { background: var(--bb); color: var(--bd); }
+.pr { border: 1px solid var(--ln); border-radius: 12px; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.ck { display: flex; gap: 10px; align-items: center; font-weight: 700; }
+.ck input { width: 22px; height: 22px; }
+.kg { display: grid; gap: 8px; }
+.kg label { display: flex; flex-direction: column; gap: 3px; font-weight: 600; font-size: .9rem; }
+.bdg { background: var(--bd); color: var(--ai); border-radius: 99px; font-size: .75rem; padding: 0 7px; margin-inline-start: 6px; }
+.al { background: var(--sf); border: 1px solid var(--ln); border-radius: 10px; padding: 10px 12px; }
+.al.nw { border-color: var(--ac); background: var(--as); }
+#toast {
+  position: fixed;
+  inset-inline: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  max-width: 420px;
+  margin: 0 auto;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  z-index: 20;
+  box-shadow: 0 6px 20px #0004;
+}
+.live { display: inline-block; font-size: .78rem; font-weight: 700; padding: 1px 10px; border-radius: 99px; }
+.live.on { background: var(--gb); color: var(--gd); }
+.live.off { background: var(--ln); color: var(--mu); }
+.phone-box {
+  background: var(--as);
+  border: 2px solid var(--ac);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--sf);
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--ln);
+}
+.qr-img { width: 140px; height: 140px; border-radius: 8px; }
+</style>
+</head>
+<body>
+<div id="app">
+<header>
+  <div class="ey">ספר יהושע</div>
+  <h1>שאלונים בספר יהושע</h1>
+</header>
+<main>
+<section id="v-hub" class="st">
+  <div id="dbwarn" class="nt" hidden></div>
+  <div id="notice" class="nt i" hidden></div>
+  <div id="hub" class="st"></div>
+  <button id="toLogin" class="lk" type="button">כניסת מנהל / מורה</button>
+</section>
+
+<section id="v-entry" class="pn st" hidden>
+  <h2 id="eT"></h2>
+  <p class="mu" id="eS"></p>
+  <label class="f" for="name">שם מלא<input id="name" type="text" autocomplete="off" list="rl" maxlength="60" placeholder="לדוגמה: דנה כהן"></label>
+  <datalist id="rl"></datalist>
+  <div id="eM" class="msg err" role="alert"></div>
+  <div class="row">
+    <button id="go" class="b" type="button">התחלה</button>
+    <button id="eBack" class="b g" type="button">חזרה</button>
+  </div>
+</section>
+
+<section id="v-quiz" class="st" hidden>
+  <div id="dots" class="dots"></div>
+  <div class="pn st" id="qb"></div>
+  <div class="nv">
+    <button id="pv" class="b g" type="button">→ הקודמת</button>
+    <button id="nx" class="b" type="button">הבאה ←</button>
+  </div>
+</section>
+
+<section id="v-done" class="pn st" hidden>
+  <div id="dn" class="st"></div>
+</section>
+
+<section id="v-login" class="pn st" hidden>
+  <h2>כניסת מנהל / מורה</h2>
+  <label class="f" for="code">קוד מנהל<input id="code" type="password" inputmode="numeric" maxlength="40"></label>
+  <div id="lM" class="msg err" role="alert"></div>
+  <div class="row">
+    <button id="lg" class="b" type="button">כניסה</button>
+    <button id="lBack" class="b g" type="button">חזרה</button>
+  </div>
+</section>
+
+<section id="v-admin" class="st" hidden>
+  <div class="tabs" role="tablist">
+    <button class="tab" id="t-results" aria-selected="true" type="button">תוצאות</button>
+    <button class="tab" id="t-publish" aria-selected="false" type="button">פרסום לתלמידים</button>
+    <button class="tab" id="t-alerts" aria-selected="false" type="button">התראות לטלפון<span id="bdg" class="bdg" hidden></span></button>
+    <button class="tab" id="t-settings" aria-selected="false" type="button">הגדרות</button>
+    <span class="sp"></span>
+    <button id="out" class="b g s" type="button">יציאה</button>
+  </div>
+
+  <!-- תוצאות -->
+  <div id="p-results" class="st">
+    <select id="rq" aria-label="שאלון"></select>
+    <div id="sum" class="stats"></div>
+    <div class="chips" id="chips">
+      <button class="chip" data-f="all" aria-pressed="true" type="button">הכול</button>
+      <button class="chip" data-f="yes" aria-pressed="false" type="button">ענו</button>
+      <button class="chip" data-f="no" aria-pressed="false" type="button">לא ענו</button>
+    </div>
+    <div id="list"></div>
+  </div>
+
+  <!-- התראות לטלפון -->
+  <div id="p-alerts" class="pn st" hidden>
+    <h2>📱 התראות בזמן אמת לטלפון הנייד</h2>
+    <p class="mu sm">קבלו התראה מתפרצת מיידית לטלפון הנייד (iPhone או Android) ברגע שתלמיד/ה מגיש/ה שאלון, כולל השם, השאלון והציון!</p>
+
+    <!-- הגדרת חיבור לטלפון -->
+    <div class="phone-box">
+      <h3>צעד 1: חיבור הטלפון לקבלת התראות</h3>
+      <p class="sm">סרקו את קוד ה-QR עם מצלמת הטלפון או לחצו על הקישור כדי לפתוח את ערוץ ההתראות בטלפון:</p>
+      
+      <div class="qr-container">
+        <img id="phoneQr" class="qr-img" src="" alt="קוד QR להתראות לטלפון">
+        <a id="phoneLnk" href="#" target="_blank" rel="noopener" class="b s">📲 פתיחת ערוץ ההתראות בטלפון</a>
+      </div>
+
+      <p class="sm mu">💡 <b>טיפ:</b> באפשרותכם להתקין את האפליקציה החינמית <b>ntfy</b> בחנות האפליקציות (iOS / Android) ולהירשם לערוץ הזה לקבלת התראות במסך הנעילה גם כשהדפדפן סגור.</p>
+    </div>
+
+    <div class="phone-box" style="background:var(--sf);">
+      <h3>צעד 2: ניהול ערוץ ההתראות</h3>
+      <label class="f" for="phoneTopic">שם ערוץ ההתראות (מפתח פרטי)<input id="phoneTopic" type="text" dir="ltr" placeholder="לדוגמה: yoshua-quiz-teacher123"></label>
+      <div class="row">
+        <button id="savePhoneTopic" class="b s" type="button">שמירת ערוץ התראות</button>
+        <button id="sendTestPhone" class="b g s" type="button">🔔 שלח התראת ניסיון לטלפון</button>
+      </div>
+      <div id="phoneMsg" class="msg" role="status"></div>
+    </div>
+
+    <hr style="border:0;border-top:1px solid var(--ln);margin:4px 0">
+
+    <h3>הגדרות צליל והתראות בדפדפן</h3>
+    <div class="row">
+      <label class="ck"><input type="checkbox" id="snd" checked> צליל בדפדפן</label>
+      <button id="dsk" class="b g s" type="button">הפעלת התראות דפדפן</button>
+      <button id="rd" class="b g s" type="button">סימון הכול כנקרא</button>
+    </div>
+
+    <h3>היסטוריית התראות</h3>
+    <div id="al" class="st"></div>
+  </div>
+
+  <!-- פרסום -->
+  <div id="p-publish" class="pn st" hidden>
+    <h2>פרסום לתלמידים</h2>
+    <p class="mu sm">שאלון מפורסם מופיע בדף הבית של התלמידים. אפשר גם לשלוח לתלמידים קישור ישיר לכל שאלון.</p>
+    <label class="f" for="base">קישור האתר<input id="base" type="text" dir="ltr" placeholder="הדביקו כאן את קישור האתר מכפתור השיתוף"></label>
+    <label class="f" for="note">הודעה לתלמידים (לא חובה)<textarea id="note" placeholder="לדוגמה: יש להגיש עד יום חמישי"></textarea></label>
+    <div id="pubs" class="st"></div>
+    <div id="pM" class="msg" role="status"></div>
+    <button id="sP" class="b" type="button">שמירה ופרסום</button>
+  </div>
+
+  <!-- הגדרות -->
+  <div id="p-settings" class="pn st" hidden>
+    <h2>הגדרות</h2>
+    <label class="f" for="nc">קוד מנהל חדש<input id="nc" type="text" inputmode="numeric" maxlength="40" placeholder="השאירו ריק כדי לא לשנות"><span class="mu sm" style="font-weight:400">הקוד ההתחלתי הוא 0544.</span></label>
+    <label class="f" for="ro">רשימת תלמידים (שם בכל שורה)<textarea id="ro" placeholder="דנה כהן&#10;יוסי לוי"></textarea></label>
+    <div class="st">
+      <h3>התשובה הנכונה לכל שאלה</h3>
+      <div id="kg" class="st"></div>
+    </div>
+    <label class="ck"><input id="sa" type="checkbox"> להראות לתלמיד את התשובות הנכונות אחרי השליחה</label>
+    <div id="sM" class="msg" role="status"></div>
+    <button id="sS" class="b" type="button">שמירת הגדרות</button>
+  </div>
+</section>
+</main>
+</div>
+
+<div id="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, onSnapshot, collection } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+(function(){
+"use strict";
+
+var QZ = [
+  {
+    id: "q1",
+    t: "ההכנות למעבר הירדן",
+    s: "שבע שאלות על ההכנות של עם ישראל למעבר הירדן.",
+    k: [1,2,1,3,2,3,2],
+    Q: [
+      ["אֵיזֶה מַנְהִיג נִפְטַר בִּתְחִלַּת הַסֵּפֶר?", ["אַבְרָהָם","מֹשֶׁה","יִצְחָק","יַעֲקֹב"]],
+      ["מִי נִבְחַר לִהְיוֹת הַמַּנְהִיג הֶחָדָשׁ שֶׁל עַם יִשְׂרָאֵל?", ["אַהֲרֹן","מֹשֶׁה","יְהוֹשֻׁעַ","כָּלֵב"]],
+      ["אֶת אֵיזֶה נָהָר עַם יִשְׂרָאֵל צָרִיךְ לַעֲבֹר?", ["הַנִּילוּס","הַיַּרְדֵּן","הַכִּנֶּרֶת","הַיַּרְמוּךְ"]],
+      ["מָה אֱלֹקִים אָמַר לִיהוֹשֻׁעַ?", ["תִּהְיֶה עָשִׁיר וּמְפֻרְסָם","תִּהְיֶה עָצוּב וְחוֹשֵׁשׁ","תִּהְיֶה עָיֵף וְחַלָּשׁ","תִּהְיֶה חָזָק וְאַמִּיץ"]],
+      ["בְּאֵיזֶה סֵפֶר יְהוֹשֻׁעַ צָרִיךְ לִלְמֹד כָּל הַזְּמַן?", ["סֵפֶר שִׁירִים","סֵפֶר הִיסְטוֹרְיָה","סֵפֶר הַתּוֹרָה","סֵפֶר חֻקִּים"]],
+      ["מִי יִהְיֶה עִם יְהוֹשֻׁעַ בְּכָל מָקוֹם שֶׁיֵּלֵךְ?", ["הַמַּלְאָכִים","מֹשֶׁה רַבֵּנוּ","מַלְכֵי הָעַמִּים","אֱלֹקִים"]],
+      ["מָה אֱלֹקִים הִבְטִיחַ לִיהוֹשֻׁעַ?", ["שֶׁהִיא תִּהְיֶה קָשָׁה","שֶׁהִיא תִּהְיֶה מְלֵאָה בְּחוֹל","שֶׁכָּל מָקוֹם שֶׁיִּדְרֹךְ בּוֹ יִהְיֶה שֶׁלּוֹ","שֶׁהוּא יִצְטָרֵךְ לִקְנוֹת אוֹתָהּ"]]
+    ]
+  },
+  {
+    id: "q2",
+    t: "ה' מחזק את יהושע",
+    s: "שש שאלות על ההכנות לפני המסע.",
+    k: [1,2,1,3,1,1],
+    Q: [
+      ["לְמִי יְהוֹשֻׁעַ נָתַן פְּקֻדָּה בַּמַּחֲנֶה?", ["לַיְלָדִים","לַשּׁוֹטְרִים","לַמַּלְאָכִים","לָאוֹיְבִים"]],
+      ["מָה הָעָם הָיָה צָרִיךְ לְהָכִין לִפְנֵי הַמַּסָּע?", ["מִשְׂחָקִים","בְּגָדִים","צֵידָה לַדֶּרֶךְ","מַתָּנוֹת"]],
+      ["בְּעוֹד כַּמָּה יָמִים הָעָם יַעֲבֹר אֶת נְהַר הַיַּרְדֵּן?", ["שָׁבוּעַ","שְׁלֹשָׁה יָמִים","חֹדֶשׁ","שָׁנָה"]],
+      ["אֵילוּ שְׁבָטִים הָיוּ צְרִיכִים לַעֲבֹר רִאשׁוֹנִים וְלַעֲזֹב אֶת הַטַּף וְהַנָּשִׁים שֶׁלָּהֶם?", ["לֵוִי וִיהוּדָה","יִשָּׂשכָר וּזְבוּלֻן","דָּן וְנַפְתָּלִי","רְאוּבֵן, גָּד וַחֲצִי הַמְנַשֶּׁה"]],
+      ["מִי נָתַן לַשְּׁבָטִים הָאֵלֶּה אֶת נַחֲלָתָם בְּעֵבֶר הַיַּרְדֵּן?", ["אַבְרָהָם","מֹשֶׁה רַבֵּנוּ","יְהוֹשֻׁעַ","אַהֲרֹן"]],
+      ["מִי הָיָה צָרִיךְ לְהִשָּׁאֵר בְּעֵבֶר הַיַּרְדֵּן וְלֹא לָצֵאת לַמִּלְחָמָה?", ["הַשּׁוֹטְרִים","הַנָּשִׁים, הַטַּף וְהַמִּקְנֶה","רַק הַזְּקֵנִים","הַמְרַגְּלִים"]]
+    ]
+  }
+];
+
+var DK = "0544";
+function $(i) { return document.getElementById(i); }
+function esc(s) { return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function norm(s) { return String(s||"").trim().replace(/\s+/g," "); }
+function zq(id) { return QZ.filter(function(z){ return z.id===id; })[0]; }
+function hs(s) {
+  var a=0xdeadbeef, b=0x41c6ce57, i, c;
+  for(i=0; i<s.length; i++){
+    c=s.charCodeAt(i);
+    a=Math.imul(a^c,2654435761);
+    b=Math.imul(b^c,1597334677);
+  }
+  a=Math.imul(a^(a>>>16),2246822507)^Math.imul(b^(b>>>13),3266489909);
+  b=Math.imul(b^(b>>>16),2246822507)^Math.imul(a^(a>>>13),3266489909);
+  return String(4294967296*(2097151&b)+(a>>>0));
+}
+function hc(c) { return hs("yarden|"+c); }
+function fmt(ts) {
+  try { return new Intl.DateTimeFormat("he-IL",{dateStyle:"short",timeStyle:"short"}).format(new Date(ts)); }
+  catch(e){ return ""; }
+}
+
+// Global Firebase App Setup
+const appId = typeof __app_id !== 'undefined' ? __app_id : 'yoshua-quiz-app';
+const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+
+var db = null, auth = null, uid = null;
+var cfg = {
+  adminHash: null,
+  roster: [],
+  keys: {},
+  pub: {q1:true, q2:true},
+  base: "",
+  note: "",
+  showAnswers: true,
+  phoneTopic: ""
+};
+
+var cur=null, st={name:"", ans:[], i:0}, results=[], isAdmin=false, tab="results", rq="q1", flt="all", openK={}, pend=null, sub=null;
+
+function getPhoneTopic() {
+  return (cfg.phoneTopic || "").trim() || ("yoshua-quiz-" + (uid ? uid.slice(0,8) : "teacher"));
+}
+
+function keyOf(z) { var k=cfg.keys[z.id]; return (Array.isArray(k)&&k.length===z.Q.length)?k:z.k; }
+function isPub(z) { return cfg.pub[z.id]!==false; }
+function score(z,a) { var k=keyOf(z), s=0; z.Q.forEach(function(_,i){ if(a[i]===k[i]) s++; }); return s; }
+function show(v) { ["hub","entry","quiz","done","login","admin"].forEach(function(x){ $("v-"+x).hidden=(x!==v); }); window.scrollTo(0,0); }
+function msg(id,t,k) { var e=$(id); e.textContent=t||""; e.className="msg"+(k?" "+k:""); }
+
+/* ---------- שליחת התראה לטלפון (Push Notification via ntfy.sh) ---------- */
+async function sendPhonePush(title, message, tags) {
+  var topic = getPhoneTopic();
+  if(!topic) return false;
+  
+  var payload = {
+    topic: topic,
+    title: title,
+    message: message,
+    priority: 4,
+    tags: tags || ["memo", "scroll"],
+    click: cfg.base || window.location.href
+  };
+
+  try {
+    var res = await fetch("https://ntfy.sh", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    return res.ok;
+  } catch(e) {
+    console.error("שגיאה בשליחת התראה לטלפון:", e);
+    return false;
+  }
+}
+
+/* ---------- דף הבית של התלמידים ---------- */
+function hub() {
+  var p=QZ.filter(isPub), n=$("notice");
+  n.hidden=!cfg.note; n.textContent=cfg.note||"";
+  $("hub").innerHTML=p.length?p.map(function(z){
+    return '<button class="card" type="button" data-id="'+z.id+'"><span><b>'+esc(z.t)+'</b><span class="mu sm">'+z.Q.length+' שאלות</span></span><span aria-hidden="true">←</span></button>';
+  }).join(""):'<div class="pn mu">כרגע אין שאלונים פתוחים. חזרו מאוחר יותר.</div>';
+  $("rl").innerHTML=cfg.roster.map(function(n){ return '<option value="'+esc(n)+'">'; }).join("");
+}
+
+function route() {
+  if(isAdmin) return;
+  var z=zq(location.hash.slice(1));
+  if(z&&isPub(z)) openEntry(z.id);
+  else if(!$("v-quiz").hidden||!$("v-done").hidden||!$("v-login").hidden) return;
+  else { hub(); show("hub"); }
+}
+
+function openEntry(id) {
+  cur=zq(id);
+  $("eT").textContent=cur.t;
+  $("eS").textContent=cur.s+" כתבו את השם המלא ולחצו על התחלה.";
+  msg("eM","");
+  show("entry");
+}
+
+/* ---------- שאלון ---------- */
+function dots() {
+  $("dots").innerHTML=cur.Q.map(function(_,i){
+    return '<button type="button" class="dot'+(st.ans[i]!=null?" dn":"")+(i===st.i?" cu":"")+'" data-i="'+i+'" aria-label="שאלה '+(i+1)+'"></button>';
+  }).join("");
+}
+
+function rQ() {
+  var i=st.i, q=cur.Q[i], N=cur.Q.length;
+  $("qb").innerHTML='<div class="qn">שאלה '+(i+1)+' מתוך '+N+'</div><p class="qt">'+esc(q[0])+'</p><div class="os" role="radiogroup">'+q[1].map(function(t,j){
+    var s=st.ans[i]===j;
+    return '<button type="button" role="radio" aria-checked="'+s+'" class="o'+(s?" sel":"")+'" data-j="'+j+'"><span>'+(j+1)+'</span><span>'+esc(t)+'</span></button>';
+  }).join("")+'</div>';
+  dots();
+  $("pv").disabled=(i===0);
+  $("nx").textContent=(i===N-1)?"סיום ושליחה":"הבאה ←";
+  $("nx").disabled=(st.ans[i]==null);
+}
+
+function review(z,a,key) {
+  var k=keyOf(z);
+  return '<ol class="rv">'+z.Q.map(function(q,i){
+    var ok=(a[i]===k[i]);
+    var m=(a[i]==null)?'<span class="tag">לא נענתה</span>':'<span>'+esc(q[1][a[i]])+'</span>'+(key?'<span class="tag '+(ok?"ok":"no")+'">'+(ok?"נכון":"לא נכון")+'</span>':"");
+    return '<li class="'+(key?(ok?"ok":"no"):"")+'"><div class="q">'+(i+1)+'. '+esc(q[0])+'</div><div>'+m+'</div>'+((key&&!ok)?'<div class="sm mu">התשובה הנכונה: '+esc(q[1][k[i]])+'</div>':"")+'</li>';
+  }).join("")+'</ol>';
+}
+
+function done(z,a,already,ss) {
+  var s=score(z,a), N=z.Q.length, r=s/N;
+  var m=(s===N)?"מצוין! כל התשובות נכונות.":(r>=.7)?"יפה מאוד, כמעט הכול נכון.":(r>=.4)?"התחלה טובה. כדאי לחזור על הפרק.":"כדאי לקרוא שוב את תחילת ספר יהושע.";
+  var n=already?'<p class="mu">השאלון כבר נשלח בשם הזה. זאת התוצאה שנשמרה.</p>':(ss==="ok")?'<p class="msg ok">התשובות נשלחו למורה.</p>':(ss==="err")?'<div class="nt">שגיאה בשמירת התשובות באחסון.</div>':"";
+  var b=cfg.showAnswers?'<div class="sc">'+s+'<small> מתוך '+N+'</small></div><p>'+m+'</p>'+review(z,a,true):'<p>השאלון נשלח. התוצאות יתקבלו מהמורה.</p>';
+  
+  $("dn").innerHTML='<h2>'+esc(z.t)+' · '+esc(st.name)+'</h2>'+n+b+'<button id="again" class="b g" type="button">חזרה לשאלונים</button>';
+  $("again").onclick=function(){ $("name").value=""; if(location.hash) history.replaceState(null,"",location.pathname+location.search); hub(); show("hub"); };
+  show("done");
+}
+
+async function readAt() {
+  if(!db || !uid) return [];
+  try {
+    const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'results', uid);
+    const snap = await getDoc(userDocRef);
+    return snap.exists() ? (snap.data().attempts || []) : [];
+  } catch(e) {
+    return [];
+  }
+}
+
+function mine(a,z,name) { return (a.quiz||"q1")===z.id && norm(a.name)===name; }
+
+async function save() {
+  var scr = score(cur, st.ans);
+  
+  // Always trigger phone notification even in local mode
+  sendPhonePush(
+    "📝 הגשת שאלון חדשה! (" + st.name + ")",
+    "התלמיד/ה " + st.name + " הגיש/ה את השאלון '" + cur.t + "'. ציון: " + scr + " מתוך " + cur.Q.length,
+    ["memo", "heavy_check_mark"]
+  );
+
+  if(!(db&&uid)) return "ok";
+  try {
+    var at = (await readAt()).slice();
+    at.push({quiz:cur.id, name:st.name, answers:st.ans.slice(), ts:Date.now()});
+    const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'results', uid);
+    await setDoc(userDocRef, {attempts:at});
+    return "ok";
+  } catch(e) {
+    console.error("Save error:", e);
+    return "err";
+  }
+}
+
+async function start() {
+  var name=norm($("name").value);
+  if(name.length<2){ msg("eM","כתבו את השם המלא כדי להתחיל.","err"); return; }
+  msg("eM",""); $("go").disabled=true; st.name=name;
+  if(db&&uid){
+    try {
+      var p=(await readAt()).filter(function(a){ return mine(a,cur,name); })[0];
+      if(p){ $("go").disabled=false; done(cur,p.answers||[],true); return; }
+    }catch(e){}
+  }
+  $("go").disabled=false; st.ans=new Array(cur.Q.length).fill(null); st.i=0; rQ(); show("quiz");
+}
+
+async function nxt() {
+  if(st.i<cur.Q.length-1){ st.i++; rQ(); return; }
+  $("nx").disabled=true;
+  done(cur,st.ans,false,await save());
+}
+
+/* ---------- מנהל ---------- */
+function flat(snap) {
+  var o=[];
+  snap.docs.forEach(function(d){
+    var x=d.data(), at=(x&&Array.isArray(x.attempts))?x.attempts:[];
+    at.forEach(function(a,i){
+      o.push({uid:d.id, idx:i, quiz:a.quiz||"q1", name:norm(a.name), answers:Array.isArray(a.answers)?a.answers:[], ts:a.ts||0});
+    });
+  });
+  return o;
+}
+
+function rows(z) {
+  var L={};
+  results.filter(function(r){ return r.quiz===z.id; }).forEach(function(r){
+    var p=L[r.name]; if(!p||r.ts>p.ts) L[r.name]=r;
+  });
+  var ro=cfg.roster.map(norm).filter(Boolean), ns=ro.slice();
+  Object.keys(L).forEach(function(n){ if(ns.indexOf(n)<0) ns.push(n); });
+  var l=ns.map(function(n){ return {name:n, att:L[n]||null}; });
+  l.sort(function(a,b){
+    if(!!a.att!==!!b.att) return a.att?-1:1;
+    return a.name.localeCompare(b.name,"he");
+  });
+  return {l:l, ro:ro.length>0};
+}
+
+function rRes() {
+  var z=zq(rq), R=rows(z), l=R.l, N=z.Q.length;
+  var an=l.filter(function(r){ return r.att; }), na=l.length-an.length;
+  var avg=an.length?an.reduce(function(s,r){ return s+score(z,r.att.answers); },0)/an.length:0;
+  
+  $("sum").innerHTML='<div class="stat"><b>'+an.length+'</b><span>ענו</span></div><div class="stat"><b>'+(R.ro?na:"-")+'</b><span>לא ענו</span></div><div class="stat"><b>'+(an.length?avg.toFixed(1):"-")+'</b><span>ממוצע מתוך '+N+'</span></div>';
+  Array.prototype.forEach.call($("chips").children,function(c){ c.setAttribute("aria-pressed",String(c.dataset.f===flt)); });
+  
+  var sh=l.filter(function(r){ return flt==="all"||(flt==="yes"?!!r.att:!r.att); });
+  $("list").innerHTML=!l.length?'<div class="pn mu">עדיין אין תוצאות. כדי לראות גם מי לא ענה, הוסיפו רשימת תלמידים בהגדרות.</div>':sh.map(function(r){
+    if(!r.att) return '<div class="flat"><div class="sm2"><span class="nm">'+esc(r.name)+'</span><span class="pill no">לא ענה</span></div></div>';
+    var a=r.att, tk=a.uid+"|"+a.idx, k=z.id+r.name;
+    return '<details class="stu" data-k="'+esc(k)+'"'+(openK[k]?" open":"")+'><summary><span class="nm">'+esc(r.name)+'</span><span class="pill yes">ענה</span><b>'+score(z,a.answers)+'/'+N+'</b></summary><div class="det">'+review(z,a.answers,true)+'<div class="row bt"><span class="mu sm">נשלח: '+esc(fmt(a.ts))+'</span><button type="button" class="b d s" data-reset="'+esc(tk)+'">'+(pend===tk?"לאשר איפוס?":"איפוס הניסיון")+'</button></div></div></details>';
+  }).join("");
+}
+
+var lastSeen=0, known=null, soundOn=true;
+try { lastSeen=+localStorage.getItem("yq_seen")||0; soundOn=localStorage.getItem("yq_snd")!=="0"; }catch(e){}
+
+function rk(r) { return r.uid+"|"+r.ts+"|"+r.quiz; }
+function bdg() { var n=results.filter(function(r){ return r.ts>lastSeen; }).length, b=$("bdg"); b.hidden=!n; b.textContent=n; }
+function markSeen() { lastSeen=results.reduce(function(a,r){ return Math.max(a,r.ts); },lastSeen); try{ localStorage.setItem("yq_seen",String(lastSeen)); }catch(e){} bdg(); }
+
+function beep() {
+  if(!soundOn) return;
+  try {
+    var c=new(window.AudioContext||window.webkitAudioContext)(), o=c.createOscillator(), g=c.createGain();
+    o.connect(g); g.connect(c.destination); o.frequency.value=880; g.gain.value=.08;
+    o.start(); o.stop(c.currentTime+.2);
+    if(navigator.vibrate) navigator.vibrate([200, 100, 200]);
+  } catch(e){}
+}
+
+function toast(t) { var e=$("toast"); e.textContent=t; e.hidden=false; clearTimeout(toast.h); toast.h=setTimeout(function(){ e.hidden=true; },6000); }
+
+function notify(r) {
+  var z=zq(r.quiz); if(!z) return;
+  var t="תשובה חדשה: "+r.name+" · "+z.t+" · "+score(z,r.answers)+"/"+z.Q.length;
+  toast(t);
+  beep();
+  try {
+    if(window.Notification && Notification.permission==="granted") new Notification("תשובה חדשה",{body:t});
+  } catch(e){}
+}
+
+function updatePhoneQR() {
+  var topic = getPhoneTopic();
+  $("phoneTopic").value = topic;
+  var url = "https://ntfy.sh/" + encodeURIComponent(topic);
+  $("phoneLnk").href = url;
+  $("phoneQr").src = "https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=" + encodeURIComponent(url);
+}
+
+function rAl() {
+  var l=results.slice().sort(function(a,b){ return b.ts-a.ts; }).slice(0,50);
+  $("snd").checked=soundOn;
+  updatePhoneQR();
+  
+  $("al").innerHTML=l.length?l.map(function(r){
+    var z=zq(r.quiz); if(!z) return "";
+    return '<div class="al'+(r.ts>lastSeen?" nw":"")+'"><b>'+esc(r.name)+'</b> · '+esc(z.t)+' · '+score(z,r.answers)+'/'+z.Q.length+'<div class="mu sm">'+esc(fmt(r.ts))+(r.ts>lastSeen?" · חדש":"")+'</div></div>';
+  }).join(""):'<div class="mu">עדיין לא נשלחו תשובות.</div>';
+}
+
+function subRes() {
+  if(sub||!db) return;
+  try {
+    const resultsCollRef = collection(db, 'artifacts', appId, 'public', 'data', 'results');
+    sub = onSnapshot(resultsCollRef, function(s){
+      results = flat(s);
+      var ks = results.map(rk);
+      if(known && isAdmin){
+        results.forEach(function(r){
+          if(known.indexOf(rk(r))<0) notify(r);
+        });
+      }
+      known = ks;
+      bdg();
+      if(isAdmin&&tab==="results") rRes();
+      if(isAdmin&&tab==="alerts") rAl();
+    }, function(err){
+      console.error("Snapshot error:", err);
+      results = [];
+    });
+  } catch(e){}
+}
+
+function lnk(z) { return (cfg.base?cfg.base.replace(/#.*$/,""):"")+"#"+z.id; }
+
+function rPub() {
+  $("base").value=cfg.base||""; $("note").value=cfg.note||"";
+  $("pubs").innerHTML=QZ.map(function(z){
+    var c=results.filter(function(r){ return r.quiz===z.id; }).length;
+    return '<div class="pr"><label class="ck"><input type="checkbox" data-p="'+z.id+'"'+(isPub(z)?" checked":"")+'> '+esc(z.t)+' <span class="live '+(isPub(z)?"on":"off")+'">'+(isPub(z)?"פתוח לתלמידים":"מוסתר")+'</span></label><div class="mu sm">'+z.Q.length+' שאלות · '+c+' תשובות שנשלחו</div><div class="row"><input type="text" dir="ltr" readonly id="L-'+z.id+'" value="'+esc(lnk(z))+'" style="flex:1;min-width:180px" aria-label="קישור ישיר"><button class="b g s" type="button" data-copy="'+z.id+'">העתקת קישור</button></div></div>';
+  }).join("");
+}
+
+async function sPub() {
+  var pub={};
+  Array.prototype.forEach.call(document.querySelectorAll("[data-p]"),function(c){ pub[c.dataset.p]=c.checked; });
+  await put({pub:pub, base:$("base").value.trim(), note:$("note").value.trim()},"pM","הפרסום נשמר.");
+  rPub();
+}
+
+function fSet() {
+  $("nc").value=""; $("ro").value=cfg.roster.join("\n"); $("sa").checked=!!cfg.showAnswers;
+  $("kg").innerHTML=QZ.map(function(z){
+    var k=keyOf(z);
+    return '<div class="st"><h3>'+esc(z.t)+'</h3><div class="kg">'+z.Q.map(function(q,i){
+      return '<label>שאלה '+(i+1)+'<select data-z="'+z.id+'" data-i="'+i+'">'+q[1].map(function(t,j){
+        return '<option value="'+j+'"'+(k[i]===j?" selected":"")+'>'+(j+1)+'. '+esc(t)+'</option>';
+      }).join("")+'</select></label>';
+    }).join("")+'</div></div>';
+  }).join("");
+  msg("sM","");
+}
+
+async function put(patch,mid,okt) {
+  var nx=Object.assign({},cfg,patch);
+  if(!db) {
+    cfg = nx;
+    hub();
+    msg(mid, okt, "ok");
+    return true;
+  }
+  try {
+    const configDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'config', 'main');
+    await setDoc(configDocRef, nx);
+    cfg = nx;
+    hub();
+    msg(mid, okt, "ok");
+    return true;
+  } catch(e) {
+    console.error("Put error:", e);
+    msg(mid, "שגיאה בשמירת ההגדרות באחסון הענן.", "err");
+    return false;
+  }
+}
+
+async function sSet() {
+  var c=$("nc").value.trim();
+  if(c&&c.length<4){ msg("sM","הקוד צריך להכיל לפחות 4 תווים.","err"); return; }
+  var seen={}, ro=[];
+  $("ro").value.split("\n").forEach(function(l){
+    var n=norm(l); if(n&&!seen[n]){ seen[n]=1; ro.push(n); }
+  });
+  var keys={};
+  QZ.forEach(function(z){
+    keys[z.id]=z.Q.map(function(_,i){
+      return +document.querySelector('[data-z="'+z.id+'"][data-i="'+i+'"]').value;
+    });
+  });
+  var p={roster:ro, keys:keys, showAnswers:$("sa").checked};
+  if(c) p.adminHash=hc(c);
+  if(await put(p,"sM",c?"ההגדרות נשמרו והקוד הוחלף.":"ההגדרות נשמרו.")) $("nc").value="";
+}
+
+function setTab(t) {
+  if(tab==="alerts"&&t!=="alerts") markSeen();
+  tab=t;
+  ["results","publish","alerts","settings"].forEach(function(x){
+    $("t-"+x).setAttribute("aria-selected",String(x===t));
+    $("p-"+x).hidden=(x!==t);
+  });
+  if(t==="results") rRes();
+  else if(t==="publish"){ rPub(); msg("pM",""); }
+  else if(t==="alerts") rAl();
+  else fSet();
+}
+
+async function reset(tk) {
+  if(!db) return;
+  var p=tk.split("|"), id=p[0], ix=+p[1];
+  try {
+    const userDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'results', id);
+    var s = await getDoc(userDocRef), at=(s.exists()&&Array.isArray(s.data().attempts))?s.data().attempts.slice():[];
+    at.splice(ix,1);
+    if(at.length) await setDoc(userDocRef, {attempts:at});
+  } catch(e){}
+  pend=null;
+}
+
+function login() {
+  var c=$("code").value.trim();
+  if(c&&hc(c)===(cfg.adminHash||hc(DK))){
+    isAdmin=true; $("code").value=""; msg("lM",""); show("admin"); subRes(); setTab("results");
+  } else {
+    msg("lM","הקוד לא נכון.","err");
+  }
+}
+
+/* ---------- אירועים ---------- */
+$("rq").innerHTML=QZ.map(function(z){ return '<option value="'+z.id+'">'+esc(z.t)+'</option>'; }).join("");
+$("rq").onchange=function(){ rq=this.value; rRes(); };
+$("hub").onclick=function(e){ var b=e.target.closest(".card"); if(b) openEntry(b.dataset.id); };
+$("eBack").onclick=function(){ if(location.hash) history.replaceState(null,"",location.pathname+location.search); hub(); show("hub"); };
+$("go").onclick=start;
+$("name").addEventListener("keydown",function(e){ if(e.key==="Enter") start(); });
+$("toLogin").onclick=function(){ msg("lM",""); show("login"); $("code").focus(); };
+$("lBack").onclick=function(){ hub(); show("hub"); };
+$("lg").onclick=login;
+$("code").addEventListener("keydown",function(e){ if(e.key==="Enter") login(); });
+$("out").onclick=function(){ isAdmin=false; if(sub){ try{sub();}catch(e){} sub=null; } known=null; results=[]; hub(); show("hub"); };
+
+["results","publish","alerts","settings"].forEach(function(t){ $("t-"+t).onclick=function(){ setTab(t); }; });
+$("sP").onclick=sPub;
+$("sS").onclick=sSet;
+$("pv").onclick=function(){ if(st.i>0){ st.i--; rQ(); } };
+$("nx").onclick=nxt;
+
+$("qb").addEventListener("click",function(e){
+  var b=e.target.closest(".o"); if(!b) return;
+  st.ans[st.i]=+b.dataset.j; rQ();
+});
+
+$("dots").addEventListener("click",function(e){
+  var b=e.target.closest(".dot"); if(!b) return;
+  var i=+b.dataset.i; if(i<=st.i||st.ans[i-1]!=null){ st.i=i; rQ(); }
+});
+
+$("chips").addEventListener("click",function(e){
+  var b=e.target.closest(".chip"); if(!b) return;
+  flt=b.dataset.f; rRes();
+});
+
+$("list").addEventListener("toggle",function(e){
+  var d=e.target; if(d&&d.matches&&d.matches("details.stu")) openK[d.dataset.k]=d.open;
+},true);
+
+$("list").addEventListener("click",async function(e){
+  var b=e.target.closest("[data-reset]"); if(!b) return;
+  var t=b.dataset.reset;
+  if(pend!==t){ pend=t; rRes(); return; }
+  await reset(t);
+});
+
+$("pubs").addEventListener("click",function(e){
+  var b=e.target.closest("[data-copy]"); if(!b) return;
+  var i=$("L-"+b.dataset.copy); i.select();
+  try {
+    navigator.clipboard.writeText(i.value).then(function(){ b.textContent="הועתק"; },function(){ document.execCommand("copy"); });
+  } catch(x){ try{ document.execCommand("copy"); }catch(y){} }
+});
+
+$("pubs").addEventListener("change",function(e){
+  var c=e.target.closest("[data-p]"); if(!c) return;
+  var l=c.parentNode.querySelector(".live");
+  l.className="live "+(c.checked?"on":"off");
+  l.textContent=c.checked?"פתוח לתלמידים":"מוסתר";
+});
+
+$("snd").onchange=function(){
+  soundOn=this.checked;
+  try{ localStorage.setItem("yq_snd",soundOn?"1":"0"); }catch(e){}
+  if(soundOn) beep();
+};
+
+$("rd").onclick=function(){ markSeen(); rAl(); };
+$("dsk").onclick=function(){
+  try {
+    Notification.requestPermission().then(function(p){
+      $("dsk").textContent=(p==="granted")?"התראות דפדפן פעילות":"ההרשאה לא ניתנה";
+    });
+  } catch(e){ $("dsk").textContent="לא נתמך בדפדפן הזה"; }
+};
+
+$("savePhoneTopic").onclick=async function(){
+  var top = $("phoneTopic").value.trim();
+  if(!top){ msg("phoneMsg","יש להזין שם ערוץ התראות","err"); return; }
+  var ok = await put({phoneTopic: top},"phoneMsg","ערוץ ההתראות עודכן בהצלחה!");
+  if(ok) updatePhoneQR();
+};
+
+$("sendTestPhone").onclick=async function(){
+  msg("phoneMsg","שולח התראת ניסיון לטלפון...","i");
+  var ok = await sendPhonePush(
+    "🔔 התראת ניסיון - שאלונים בספר יהושע",
+    "מערכת ההתראות מחוברת לטלפון הנייד בהצלחה! תקבלו הודעות מתפרצות בכל הגשת שאלון.",
+    ["bell", "sparkles"]
+  );
+  if(ok) msg("phoneMsg","התראת הניסיון נשלחה לטלפון! בדקו את מסך הנעילה.","ok");
+  else msg("phoneMsg","שגיאה בשליחת ההתראה. ודאו שהחיבור לרשת פעיל.","err");
+};
+
+window.addEventListener("hashchange",route);
+hub(); route();
+
+/* ---------- אתחול ואחסון ענני (Firebase Integration) ---------- */
+async function initFirebase() {
+  if (!firebaseConfig) {
+    return;
+  }
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    auth = getAuth(app);
+
+    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+      await signInWithCustomToken(auth, __initial_auth_token);
+    } else {
+      await signInAnonymously(auth);
+    }
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        uid = user.uid;
+        
+        // Listen to cloud config
+        try {
+          const configDocRef = doc(db, 'artifacts', appId, 'public', 'data', 'config', 'main');
+          onSnapshot(configDocRef, function(s){
+            if(s.exists()){
+              var d=s.data()||{};
+              cfg={
+                adminHash: d.adminHash||null,
+                roster: Array.isArray(d.roster)?d.roster.map(norm).filter(Boolean):[],
+                keys: d.keys||(Array.isArray(d.key)?{q1:d.key}:{}),
+                pub: d.pub||{q1:true,q2:true},
+                base: d.base||"",
+                note: d.note||"",
+                showAnswers: d.showAnswers!==false,
+                phoneTopic: d.phoneTopic||""
+              };
+            }
+            if(!isAdmin){ hub(); route(); }
+            else if(tab==="results") rRes();
+            else if(tab==="alerts") rAl();
+          }, function(err){});
+        } catch(e){}
+      }
+    });
+  } catch (e) {
+    console.error("Firebase init fallback:", e);
+  }
+}
+
+initFirebase();
+
+})();
+</script>
+</body>
+</html>
